@@ -1,0 +1,148 @@
+PROLINK BRIDGE 4.0 BETA  —  READ ME FIRST
+==========================================
+
+Connects a Behringer WING or a Behringer X32 / Midas M32 console to
+Waves SuperRack SoundGrid through ProLink. Press SELECT on the console and
+the rack on the same card channel opens in SuperRack.
+
+
+WORKS WITH (tested)
+-------------------
+  Waves SuperRack SoundGrid ......  15.15 (ProLink)
+  Behringer WING ................  firmware 3.1   (WING, WING Rack, WING Compact)
+  Behringer X32 / Midas M32 .....  firmware 4.13  (all models, M32R included)
+  Mac ...........................  macOS 10.15 or newer, Apple Silicon or Intel
+  Windows .......................  Windows 10 or 11, 64-bit (nothing else to install)
+
+  Check:  SuperRack  > Help / About.   WING  > Setup > General > About.
+          X32 / M32  > Setup > Global (firmware shown on the screen).
+
+
+WHICH FILE
+----------
+  WING console .............  "ProLink Bridge WING"
+  X32 or M32 console .......  "ProLink Bridge X-M32"
+
+  Mac with Apple M1/M2/M3/M4 ...  "Mac M (Apple Silicon).dmg"
+  Mac with Intel ...............  "Mac Intel.dmg"
+                                   (Apple menu > About This Mac > Chip / Processor)
+  Windows 10 / 11 ..............  "Windows.zip"
+
+
+INSTALL — MAC
+-------------
+  1. Open the .dmg and drag the app onto "Applications".
+  2. Open it from Applications. If macOS says it cannot check the app:
+     System Settings > Privacy & Security > "Open Anyway"
+     (older macOS: right-click the app > Open > Open).
+  3. When macOS asks to find devices on the local network: "Allow".
+     A small icon appears in the menu bar and the panel opens in your browser.
+
+INSTALL — WINDOWS
+-----------------
+  1. Unzip the .zip (right-click > Extract All).
+  2. Right-click "Allow through the firewall.cmd" > Run as administrator (once).
+  3. Start the .exe. If Windows shows "Windows protected your PC":
+     More info > Run anyway. The panel opens in your browser.
+
+
+HOW TO CONNECT  (3 steps)
+-------------------------
+  1. NETWORK — the console and the computer running SuperRack on the same
+     network (same switch / router, same IP range, e.g. 192.168.0.x).
+  2. BRIDGE — in the panel press START. It finds the console by itself.
+     If it does not: "Type the console address" and enter the console IP
+     (WING: Setup > Network.  X32 / M32: Setup > Network).
+  3. SUPERRACK — Setup > ProLink > "ProLink Console Remote". The console
+     appears in the list by itself — pick it. The SuperRack light in the
+     panel turns green.
+
+  Run only ONE bridge per computer (close the WING one when you use the
+  X32/M32 one, and the other way round).
+
+
+THE PANEL
+---------
+  Main   — Start / Stop, the Console / SuperRack / Scene lights, licence.
+  Setup  — SELECT by card channel, Touch and Turn & controls, MIDI.
+  Extra  — Gain routing and gain box (X32/M32), scenes and sessions
+           (all OFF by default), rack names, log.
+
+
+SELECT  (all consoles, all models)
+----------------------------------
+  SELECT opens the rack that sits on the SAME CARD CHANNEL in SuperRack.
+  Example: channel 5 comes from card 45 -> SELECT on channel 5 opens the
+  rack whose input is card 45.
+    - Stereo channels open one rack.
+    - Buses, main and matrices follow their insert or the card output that
+      carries them (WING: also external FX inserts returning on the card).
+    - WING: follows the ALT source when it is switched on.
+    - A source with no matching card channel opens NOTHING.
+  It follows the console in real time: change a source, the routing, an
+  insert, load a scene, move a rack in SuperRack — it updates in under a
+  second. Names are never used. To force a row: Setup > type a rack number.
+
+
+TOUCH AND TURN  (full-size consoles only)
+-----------------------------------------
+  Touch and Turn works only on the full-size consoles — Behringer WING,
+  Behringer X32, Midas M32 — from their ASSIGNABLE encoders, or from an
+  external MIDI controller with endless knobs.
+
+  WING:      Custom Controls (USER / LAYER): set the knob to "MIDI CC".
+             Then in Setup tick "Touch and Turn on every Custom Control
+             encoder", or bind one knob with Listen.
+  X32 / M32: Setup > User Assign: give the Assign encoder a function
+             (e.g. MIDI CC). Out of the box: Bank C encoder 1 = Touch and Turn.
+  MIDI controller: Setup > External MIDI controller > pick it > Listen >
+             move a knob > Pick > "Touch and Turn — relative MIDI encoder".
+
+  Any other function (open a rack, next plugin, snapshots, tap tempo...)
+  goes on any button the same way: Setup > Listen > move it > Pick > Bind.
+
+
+MIDI FUNCTIONS
+--------------
+  1. Console as a MIDI controller for SuperRack (over the network cable):
+     the assignable buttons send a note, the encoders an endless CC.
+     Setup > MIDI to SuperRack: "MIDI port on". In SuperRack: Setup > MIDI,
+     pick the bridge's port, right-click a parameter > MIDI Learn, then move
+     the control (or press "Send" in the panel).
+  2. Choose what each control sends: Setup > "What each console control
+     sends" — Note or CC, MIDI channel, number, on / off / auto.
+  3. External MIDI controller in: any MIDI box or keyboard on the computer
+     can drive bridge functions (Touch and Turn, racks, snapshots...).
+  Windows: the MIDI port to SuperRack needs loopMIDI (free,
+  tobias-erichsen.de) — create one port and pick it in Setup.
+
+
+GAIN  (X32 / M32)
+-----------------
+  The GAIN knob moves the real preamp of the channel (local, AES50 A or B),
+  read from the console in real time; the digital trim stays at 0 dB.
+  Main: "GAIN on the TRIM knob". Extra > Gain routing: send any channel's
+  gain wherever you want ("Auto" = from the routing). Extra > Gain box:
+  show, move and size the small on-screen gain box.
+
+
+SCENES  (Extra, off by default)
+-------------------------------
+  "Every scene remembers its bridge setup": when you save in SuperRack or
+  on the console, your SELECT pins and controls are kept with the console
+  scene and come back with it. Whatever you change stays as you left it,
+  also after you reopen the program.
+  X32 / M32: SAVE / RECALL on the console can also save / open the
+  SuperRack session with the scene's name.
+
+
+DEMO AND LICENCE
+----------------
+  Without a licence the bridge runs 30 minutes, then disconnects. Quit and
+  open it again for another 30 minutes.
+  Licence: copy the code under "Licence" in the panel and send it on
+  Facebook Messenger or to victorastulum065@gmail.com. Paste the key you
+  receive and press Activate. One licence = one computer, works offline.
+
+
+(c) Tulum Victoras Mirel. All rights reserved.
